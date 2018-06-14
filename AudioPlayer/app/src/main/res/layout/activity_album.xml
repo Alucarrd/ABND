@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AlbumActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/baseline_home_black_24dp" />
+
+        <ImageView
+            android:id="@+id/search_btn_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/baseline_search_black_24dp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/album_image_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/beauty_and_the_beast" />
+
+    <TextView
+        style="@style/albumTitle"
+        android:id="@+id/album_title_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Beauty and the Beast" />
+    <TextView
+        style="@style/albumTitle"
+        android:id="@+id/album_artist_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="By Various Artist" />
+
+    <ListView
+
+        style="@style/song_list_container"
+        android:id="@+id/song_list_id"
+        android:paddingTop="@dimen/list_top_padding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></ListView>
+
+</LinearLayout>

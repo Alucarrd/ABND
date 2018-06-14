@@ -1,0 +1,44 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+
+    </style>
+    <style name="PageBackGround" parent="AppTheme">
+        <item name="android:background">@color/backgroundGray</item>
+    </style>
+    <style name="pageTitle" parent="AppTheme">
+        <item name="android:fontFamily">Arial</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/darkGray</item>
+
+    </style>
+
+    <style name="albumTitle" parent="AppTheme">
+        <item name="android:fontFamily">Arial</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/darkGray</item>
+    </style>
+    <style name="listText" parent="AppTheme">
+        <item name="android:fontFamily">Arial</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/darkGray</item>
+    </style>
+    <style name="song_list_container" parent="AppTheme">
+        <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:fontFamily">Arial</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/darkGray</item>
+
+    </style>
+
+
+</resources>

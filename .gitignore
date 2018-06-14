@@ -1,0 +1,13 @@
+largedata/
+*.pyc
+*.pkl
+target/
+!pom.xml
+*.csv
+target/
+*.dat
+data/
+metastore_db/
+node_modules/
+chaindata/
+build/

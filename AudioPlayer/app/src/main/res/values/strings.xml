@@ -1,0 +1,22 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="albums_activity">Albums</string>
+    <string name="album_activity">Album</string>
+    <string name="song_activity">Song</string>
+    <string name="search_activity">Search</string>
+    <string name="app_name">AudioPlayer</string>
+    <string name="back_arrow">&#60;&#60;</string>
+    <string name="play_underconstruction">The play button is under construction</string>
+    <string name="home_title">Browse Album</string>
+    <string name="search_title">Search Your Song</string>
+    <string name="artist_label">By <xliff:g id="artist_name" example="Various Artists">%s</xliff:g></string>
+    <string name="album_label">From Album: <xliff:g id="album_name" example="Game of Throne">%s</xliff:g></string>
+    <string name="song_label">#<xliff:g id="order_id" example="1">%d</xliff:g>: <xliff:g id="song_title" example="My Song Name">%s</xliff:g> - Duration: <xliff:g id="duration" example="5:02">%s</xliff:g></string>
+    <string name="search_box_hint">Type your search phrase and press enter</string>
+    <string name="search_page_label">Search for songs by phrases</string>
+    <string name="search_not_found">Not found. Please try a different search phrase.</string>
+    <string name="song_list_title">#<xliff:g id="order_id" example="1">%d</xliff:g>: <xliff:g id="song_title" example="My Song Name">%s</xliff:g></string>
+    <string name="song_list_duration">Duration: <xliff:g id="duration" example="5:02">%s</xliff:g></string>
+    <string name="song_list_title_2">#%d: %s</string>
+    <string name="song_list_duration_2">Duration: %s</string>
+    <string name="song_artist_label">By %s</string>
+</resources>

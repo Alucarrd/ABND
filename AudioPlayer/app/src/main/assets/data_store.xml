@@ -1,0 +1,451 @@
+<?xml version="1.0"?>
+<Albums>
+	<Album Id="1">
+		<Title>The Greatest Showman: Original Motion Picture Soundtrack</Title>
+		<Image>the_greatest_show_man.jpg</Image>
+		<Artist>Various Artists</Artist>
+		<Record>Atlantic</Record>
+		<Songs>
+			<Song Id="1">
+				<Title>The Greatest Show</Title>
+				<Artist>Hugh Jackman, Keala Settle, Zac Efron, Zendaya</Artist>
+				<OrderId>1</OrderId>
+				<Length>5:02</Length>
+			</Song>
+			<Song Id="2">
+				<Title>A Million Dreams</Title>
+				<Artist>Ziv Zaifman, Jackman, Michelle Williams</Artist>
+				<OrderId>2</OrderId>
+				<Length>4:29</Length>
+			</Song>
+			<Song Id="3">
+				<Title>A Million Dreams (Reprise)</Title>
+				<Artist>Austyn Johnson, Cameron Seely, Jackman</Artist>
+				<OrderId>3</OrderId>
+				<Length>1:00</Length>
+			</Song>
+			<Song Id="4">
+				<Title>Come Alive</Title>
+				<Artist>Jackman, Settle, Daniel Everidge, Zendaya</Artist>
+				<OrderId>4</OrderId>
+				<Length>3:45</Length>
+			</Song>
+			<Song Id="5">
+				<Title>The Other Side</Title>
+				<Artist>Jackman &amp; Efron</Artist>
+				<OrderId>5</OrderId>
+				<Length>3:34</Length>
+			</Song>
+			<Song Id="6">
+				<Title>Never Enough</Title>
+				<Artist>Loren Allred</Artist>
+				<OrderId>6</OrderId>
+				<Length>3:27</Length>
+			</Song>
+			<Song Id="7">
+				<Title>This Is Me</Title>
+				<Artist>Settle</Artist>
+				<OrderId>7</OrderId>
+				<Length>3:54</Length>
+			</Song>
+			<Song Id="8">
+				<Title>Rewrite the Stars</Title>
+				<Artist>Efron &amp; Zendaya</Artist>
+				<OrderId>8</OrderId>
+				<Length>3:37</Length>
+			</Song>
+			<Song Id="9">
+				<Title>Tightrope</Title>
+				<Artist>Michelle Williams</Artist>
+				<OrderId>9</OrderId>
+				<Length>3:54</Length>
+			</Song>
+			<Song Id="10">
+				<Title>Never Enough (Reprise)</Title>
+				<Artist>Loren Allred</Artist>
+				<OrderId>10</OrderId>
+				<Length>1:20</Length>
+			</Song>
+			<Song Id="11">
+				<Title>From Now On</Title>
+				<Artist>Hugh Jackman</Artist>
+				<OrderId>11</OrderId>
+				<Length>5:49</Length>
+			</Song>
+		</Songs>
+	</Album>
+	<Album Id="2">
+		<Title>Game of Thrones: Season 7 (soundtrack)</Title>
+		<Image>game_of_throne_season_7.jpg</Image>
+		<Artist>Ramin Djawadi</Artist>
+		<Record>WaterTower Music</Record>
+		<Songs>
+			<Song Id="12">
+				<Title>Main Title</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>1</OrderId>
+				<Length>1:53</Length>
+			</Song>
+			<Song Id="13">
+				<Title>Dragonstone</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>2</OrderId>
+				<Length>5:06</Length>
+			</Song>
+			<Song Id="14">
+				<Title>Shall We Begin?</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>3</OrderId>
+				<Length>1:24</Length>
+			</Song>
+			<Song Id="15">
+				<Title>The Queen's Justice</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>4</OrderId>
+				<Length>1:21</Length>
+			</Song>
+			<Song Id="16">
+				<Title>A Game I Like to Play</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>5</OrderId>
+				<Length>1:45</Length>
+			</Song>
+			<Song Id="17">
+				<Title>I Am the Storm</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>6</OrderId>
+				<Length>6:53</Length>
+			</Song>
+			<Song Id="18">
+				<Title>The Gift</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>7</OrderId>
+				<Length>2:03</Length>
+			</Song>
+			<Song Id="19">
+				<Title>Dragonglass</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>8</OrderId>
+				<Length>4:19</Length>
+			</Song>
+			<Song Id="20">
+				<Title>Spoils of War (Pt. 1)</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>9</OrderId>
+				<Length>3:53</Length>
+			</Song>
+			<Song Id="21">
+				<Title>Spoils of War (Pt. 2)</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>10</OrderId>
+				<Length>4:03</Length>
+			</Song>
+			<Song Id="22">
+				<Title>The Dagger</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>11</OrderId>
+				<Length>2:34</Length>
+			</Song>
+			<Song Id="23">
+				<Title>Home</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>12</OrderId>
+				<Length>2:30</Length>
+			</Song>
+			<Song Id="24">
+				<Title>Gorgeous Beasts</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>13</OrderId>
+				<Length>2:11</Length>
+			</Song>
+			<Song Id="25">
+				<Title>The Long Farewell</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>14</OrderId>
+				<Length>2:46</Length>
+			</Song>
+			<Song Id="26">
+				<Title>Against All Odds</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>15</OrderId>
+				<Length>7:48</Length>
+			</Song>
+			<Song Id="27">
+				<Title>See You for What You Are</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>16</OrderId>
+				<Length>2:09</Length>
+			</Song>
+			<Song Id="28">
+				<Title>Casterly Rock</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>17</OrderId>
+				<Length>2:23</Length>
+			</Song>
+			<Song Id="29">
+				<Title>A Lion's Legacy</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>18</OrderId>
+				<Length>1:34</Length>
+			</Song>
+			<Song Id="30">
+				<Title>Message for Cersei</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>19</OrderId>
+				<Length>1:43</Length>
+			</Song>
+			<Song Id="31">
+				<Title>Ironborn</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>20</OrderId>
+				<Length>2:19</Length>
+			</Song>
+			<Song Id="32">
+				<Title>No One Walks Away from Me</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>21</OrderId>
+				<Length>2:11</Length>
+			</Song>
+			<Song Id="33">
+				<Title>Truth</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>22</OrderId>
+				<Length>3:31</Length>
+			</Song>
+			<Song Id="34">
+				<Title>The Army of the Dead"</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>23</OrderId>
+				<Length>5:26</Length>
+			</Song>
+			<Song Id="35">
+				<Title>Winter Is Here</Title>
+				<Artist>Ramin Djawadi</Artist>
+				<OrderId>24</OrderId>
+				<Length>2:54</Length>
+			</Song>
+		</Songs>
+	</Album>
+	<Album Id="3">
+		<Title>Beauty and the Beast: Original Motion Picture Soundtrack</Title>
+		<Image>beauty_and_the_best</Image>
+		<Artist>Various Artists</Artist>
+		<Record>Walt Disney</Record>
+		<Songs>
+			<Song Id="36">
+				<Title>Overture</Title>
+				<Artist>Various Artists</Artist>
+				<OrderId>1</OrderId>
+				<Length>3:05</Length>
+			</Song>
+			<Song Id="37">
+				<Title>Main Title: Prologue Pt. 1" (Includes narration by Hattie Morahan)</Title>
+				<Artist>Various Artists</Artist>
+				<OrderId>2</OrderId>
+				<Length>0:42</Length>
+			</Song>
+			<Song Id="38">
+				<Title>Aria</Title>
+				<Artist>Various Artists</Artist>
+				<OrderId>3</OrderId>
+				<Length>1:02</Length>
+			</Song>
+			<Song Id="39">
+				<Title>Main Title: Prologue Pt. 2" (Includes narration by Hattie Morahan)</Title>
+				<Artist>Various Artists</Artist>
+				<OrderId>4</OrderId>
+				<Length>2:21</Length>
+			</Song>
+			<Song Id="40">
+				<Title>Belle</Title>
+				<Artist>Emma Watson, Luke Evans, Ensemble</Artist>
+				<OrderId>5</OrderId>
+				<Length>5:33</Length>
+			</Song>
+			<Song Id="41">
+				<Title>How Does a Moment Last Forever (Music Box)</Title>
+				<Artist>Kevin Kline</Artist>
+				<OrderId>6</OrderId>
+				<Length>1:03</Length>
+			</Song>
+			<Song Id="42">
+				<Title>Belle (Reprise)</Title>
+				<Artist>Emma Watson</Artist>
+				<OrderId>7</OrderId>
+				<Length>1:15</Length>
+			</Song>
+			<Song Id="43">
+				<Title>Gaston</Title>
+				<Artist>Luke Evans, Josh Gad, Ensemble</Artist>
+				<OrderId>8</OrderId>
+				<Length>4:25</Length>
+			</Song>
+			<Song Id="44">
+				<Title>Be Our Guest</Title>
+				<Artist>Ewan McGregor, Emma Thompson, Gugu Mbatha-Raw and Ian McKellen</Artist>
+				<OrderId>9</OrderId>
+				<Length>4:48</Length>
+			</Song>
+			<Song Id="45">
+				<Title>Days in the Sun</Title>
+				<Artist>Adam Mitchell, Stanley Tucci, Ewan McGregor, Gugu Mbatha-Raw, Emma Thompson, Audra McDonald, Emma Watson, Ian McKellen, Clive Rowe</Artist>
+				<OrderId>10</OrderId>
+				<Length>2:40</Length>
+			</Song>
+			<Song Id="46">
+				<Title>Something There</Title>
+				<Artist>Emma Watson, Dan Stevens, Emma Thompson, Nathan Mack, Ian McKellen, Ewan McGregor, Gugu Mbatha-Raw</Artist>
+				<OrderId>11</OrderId>
+				<Length>2:54</Length>
+			</Song>
+			<Song Id="47">
+				<Title>How Does a Moment Last Forever (Montmartre)</Title>
+				<Artist>emma Watson</Artist>
+				<OrderId>12</OrderId>
+				<Length>1:55</Length>
+			</Song>
+			<Song Id="48">
+				<Title>Beauty and the Beast</Title>
+				<Artist>Emma Thompson</Artist>
+				<OrderId>13</OrderId>
+				<Length>3:19</Length>
+			</Song>
+			<Song Id="49">
+				<Title>Evermore</Title>
+				<Artist>Dan Stevens</Artist>
+				<OrderId>14</OrderId>
+				<Length>3:14</Length>
+			</Song>
+			<Song Id="50">
+				<Title>The Mob Song</Title>
+				<Artist>Luke Evans, Josh Gad, Ensemble, Emma Watson, Ian McKellen, Stanley Tucci, Nathan Mack, Gugu Mbatha-Raw, Ewan McGregor, Gerard Horan, Haydn Gwynne</Artist>
+				<OrderId>15</OrderId>
+				<Length>2:28</Length>
+			</Song>
+			<Song Id="51">
+				<Title>Beauty and the Beast (Finale)</Title>
+				<Artist>Audra McDonald, Emma Thompson, Ensemble</Artist>
+				<OrderId>16</OrderId>
+				<Length>2:14</Length>
+			</Song>
+			<Song Id="52">
+				<Title>How Does a Moment Last Forever</Title>
+				<Artist>Celine Dion</Artist>
+				<OrderId>17</OrderId>
+				<Length>3:37</Length>
+			</Song>
+			<Song Id="53">
+				<Title>Beauty and the Beast</Title>
+				<Artist>Ariana Grande &amp; John Legend</Artist>
+				<OrderId>18</OrderId>
+				<Length>3:47</Length>
+			</Song>
+			<Song Id="54">
+				<Title>Evermore</Title>
+				<Artist>Josh Groban</Artist>
+				<OrderId>19</OrderId>
+				<Length>3:09</Length>
+			</Song>
+
+		</Songs>
+	</Album>
+	<Album Id="4">
+		<Title>Wonder Woman</Title>
+		<Image>wonder_woman.jpg</Image>
+		<Artist>Rupert Gregson-Williams</Artist>
+		<Record>WaterTower</Record>
+		<Songs>
+			<Song Id="55">
+				<Title>Amazons of Themyscira</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>1</OrderId>
+				<Length>6:47</Length>
+			</Song>
+			<Song Id="56">
+				<Title>History Lesson</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>2</OrderId>
+				<Length>5:16</Length>
+			</Song>
+			<Song Id="57">
+				<Title>Angel on the Wing</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>3</OrderId>
+				<Length>3:45</Length>
+			</Song>
+			<Song Id="58">
+				<Title>Ludendorff, Enough!</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>4</OrderId>
+				<Length>7:37</Length>
+			</Song>
+			<Song Id="59">
+				<Title>Pain, Loss &amp; Love</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>5</OrderId>
+				<Length>5:27</Length>
+			</Song>
+			<Song Id="60">
+				<Title>No Man's Land</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>6</OrderId>
+				<Length>8:52</Length>
+			</Song>
+			<Song Id="61">
+				<Title>Fausta</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>7</OrderId>
+				<Length>3:20</Length>
+			</Song>
+
+			<Song Id="62">
+				<Title>Wonder Woman's Wrath</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>8</OrderId>
+				<Length>4:06</Length>
+			</Song>
+			<Song Id="63">
+				<Title>The God of War</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>9</OrderId>
+				<Length>8:02</Length>
+			</Song>
+			<Song Id="64">
+				<Title>We Are All to Blame</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>10</OrderId>
+				<Length>3:11</Length>
+			</Song>
+			<Song Id="65">
+				<Title>Hell Hath No Fury</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>11</OrderId>
+				<Length>3:58</Length>
+			</Song>
+			<Song Id="66">
+				<Title>Lightning Strikes</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>12</OrderId>
+				<Length>3:35</Length>
+			</Song>
+			<Song Id="67">
+				<Title>Trafalgar Celebration</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>13</OrderId>
+				<Length>4:50</Length>
+			</Song>
+			<Song Id="68">
+				<Title>Action Reaction</Title>
+				<Artist>Rupert Gregson-Williams</Artist>
+				<OrderId>14</OrderId>
+				<Length>5:54</Length>
+			</Song>
+			<Song Id="69">
+				<Title>To Be Human</Title>
+				<Artist>Sia featuring Labrinth</Artist>
+				<OrderId>15</OrderId>
+				<Length>4:00</Length>
+			</Song>
+		</Songs>
+	</Album>
+</Albums>
