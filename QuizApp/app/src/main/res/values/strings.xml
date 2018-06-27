@@ -1,0 +1,71 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">QuizApp</string>
+
+    <string name="question_1">On the day of her wedding to Khal Drogo, select all the gifts did Daenerys receive</string>
+    <string name="question_2">What is the castle at the Wall called?</string>
+    <string name="question_3">Complete this part of Tyrion\'s speech at the Battle of the Blackwater: “Those are brave men knocking at our door, let\'s go ___ them.</string>
+    <string name="question_4">Ygritte lures Jon to the cave by doing what?</string>
+    <string name="question_5">What does Ned Stark tell Bran when he beheads a deserter in the pilot episode?</string>
+    <string name="question_6">What was the name of the battle where Robert Baratheon killed Rhaegar Targaryen?</string>
+    <string name="question_7">Who said "A very small man can cast a very large shadow"?</string>
+    <string name="question_8">For how many years has the Knight\'s Watch guarded the kingdoms?</string>
+    <string name="question_9">Why was Jorah exiled from Westeros?</string>
+    <string name="question_10">Which character was forced to drink horse pee?</string>
+    <string name="q1Answer1">A Book</string>
+    <string name="q1Answer2">A Silver Horse</string>
+    <string name="q1Answer3">A Silk Dress</string>
+    <string name="q1Answer4">Handmaidens</string>
+    <string name="q2Answer1">Castle Black</string>
+    <string name="q2Answer2">Crows Castle</string>
+    <string name="q2Answer3">Ice keep</string>
+    <string name="q2Answer4">Craster\'s Keep</string>
+
+    <string name="q4Answer1">Telling him to follow her</string>
+    <string name="q4Answer2">Tricking him</string>
+    <string name="q4Answer3">Threatening him</string>
+    <string name="q4Answer4">Taking his sword</string>
+    <string name="q5Answer1">Our way is the old way</string>
+    <string name="q5Answer2">All men must die</string>
+    <string name="q5Answer3">Fear cuts deeper than sword</string>
+
+    <string name="q6Answer1">Battle of the Trident </string>
+    <string name="q6Answer2">The war of the five kings</string>
+    <string name="q6Answer3">Battle of the Golden Tooth</string>
+    <string name="q6Answer4">The Siege of Storms end</string>
+    <string name="q6Answer5">Battle of Blackwater</string>
+
+    <string name="q7Answer1">Tyrion Lannister</string>
+    <string name="q7Answer2">Stannis Baratheon</string>
+    <string name="q7Answer3">Petyr Baelish</string>
+    <string name="q7Answer4">Lady Malisandre</string>
+    <string name="q7Answer5">Lord Varys</string>
+
+    <string name="q8Answer1">8000</string>
+    <string name="q8Answer2">1000</string>
+    <string name="q8Answer3">300</string>
+    <string name="q8Answer4">2000</string>
+
+    <string name="q9Answer1">For killing poachers</string>
+    <string name="q9Answer2">For selling slaves</string>
+    <string name="q9Answer3">For pirating</string>
+    <string name="q9Answer4">For killing slaves</string>
+    <string name="q10Answer1">Varys</string>
+    <string name="q10Answer2">Tyrion</string>
+    <string name="q10Answer3">Jaime</string>
+    <string name="q10Answer4">Sansa</string>
+    <string name="question_template1">Question 1:</string>
+    <string name="question_template2">Question 2:</string>
+    <string name="question_template3">Question 3:</string>
+    <string name="question_template4">Question 4:</string>
+    <string name="question_template5">Question 5:</string>
+    <string name="question_template6">Question 6:</string>
+    <string name="question_template7">Question 7:</string>
+    <string name="question_template8">Question 8:</string>
+    <string name="question_template9">Question 9:</string>
+    <string name="question_template10">Question 10:</string>
+    <string name="current_question"><xliff:g id="questionId" example="1">%s</xliff:g> of 10</string>
+    <string name="answer_label">Answer:</string>
+    <string name="final_answer">You have gotten <xliff:g id="questionId" example="1">%s</xliff:g> of 10 correct!!!</string>
+    <string name="radio_validation">Please pick your answer...</string>
+    <string name="edit_text_validation">Please provide your answer</string>
+</resources>
