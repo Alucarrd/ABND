@@ -3,8 +3,8 @@ package com.example.android.miwok;
 public class Word {
     private String mMiwokTranslation;
     private String mDefaultTranslation;
-
-
+    private int mResourceId;
+    private static final int NO_IMAGE_PROVIDED = -1;
     /**
      * Create a new Word object.
      *
@@ -18,6 +18,20 @@ public class Word {
 
     }
     /**
+     * Create a new Word object.
+     *
+     * @param defaultTranslation is the word in a language that the user is already familiar with
+     *                           (such as English)
+     * @param miwokTranslation is the word in the Miwok language
+     *
+     * @param resourceId is the int for the resource id
+     */
+    public Word(String defaultTranslation, String miwokTranslation, int resourceId){
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
+        mResourceId = resourceId;
+    }
+    /**
      * Get the default translation of the word.
      */
     public String getDefaultTranslation() {
@@ -28,5 +42,10 @@ public class Word {
      */
     public String getMiwokTranslation(){
         return mMiwokTranslation;
+    }
+
+    public int getmResourceId(){return mResourceId; }
+    public boolean hasImage(){
+        return mResourceId != NO_IMAGE_PROVIDED;
     }
 }
