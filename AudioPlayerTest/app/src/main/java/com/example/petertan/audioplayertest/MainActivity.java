@@ -11,6 +11,7 @@ import android.os.Handler;
 import java.util.concurrent.TimeUnit;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mySong = MediaPlayer.create(this, R.raw.sampleaudio_04mb);
+        mySong.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            public void onCompletion(MediaPlayer mp) {
+                popToast("I'm done!"); // finish current activity
+            }
+        });
         setContentView(R.layout.activity_main);
         Button playButton = (Button) findViewById(R.id.play);
         Button pauseButton = (Button) findViewById(R.id.pause);
@@ -69,4 +75,8 @@ public class MainActivity extends AppCompatActivity {
             myHandler.postDelayed(this, 100);
         }
     };
+    private void popToast(String myMsg){
+        Toast.makeText(this,myMsg,
+                Toast.LENGTH_LONG).show();
+    }
 }
