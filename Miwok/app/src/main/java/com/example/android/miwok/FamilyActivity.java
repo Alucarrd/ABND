@@ -1,5 +1,7 @@
 package com.example.android.miwok;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,15 +13,47 @@ import java.util.ArrayList;
 
 public class FamilyActivity extends AppCompatActivity {
     private MediaPlayer myTranslatePair;
+    private AudioManager audioManager;
+
     @Override
     protected  void onStop(){
         super.onStop();
         releaseMediaPlayer();
     }
+    //see comments on numbers activities
+    private AudioManager.OnAudioFocusChangeListener myAudioFocusChangeListner = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+            if(focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT
+                    || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK){
+                myTranslatePair.pause();
+                myTranslatePair.seekTo(0);
+            }
+            else if(focusChange == AudioManager.AUDIOFOCUS_GAIN){
+                myTranslatePair.start();
+            }
+            else if(focusChange == AudioManager.AUDIOFOCUS_LOSS){
+                releaseMediaPlayer();
+            }
+
+        }
+    };
+
+    private MediaPlayer.OnCompletionListener myMediaPlayerOnCompleteListener = new MediaPlayer.OnCompletionListener() {
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+            releaseMediaPlayer();
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.word_list);
+
+        audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+
         final ArrayList<Word> words = new ArrayList<Word>();
         words.add(new Word("father", "әpә", R.drawable.family_father, R.raw.family_father));
         words.add(new Word("mother", "әṭa", R.drawable.family_mother, R.raw.family_mother));
@@ -41,9 +75,18 @@ public class FamilyActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Word word = words.get(i);
                 releaseMediaPlayer();
-                myTranslatePair = MediaPlayer.create(FamilyActivity.this, words.get(i).getmAudioResourceId()) ;
-                myTranslatePair.start();
+                int result = audioManager.requestAudioFocus(myAudioFocusChangeListner,
+                        AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+                if(result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED){
+                    myTranslatePair = MediaPlayer.create(FamilyActivity.this, words.get(i).getmAudioResourceId()) ;
+
+                    myTranslatePair.start();
+                    myTranslatePair.setOnCompletionListener(myMediaPlayerOnCompleteListener);
+                }
+
+
             }
         });
 
@@ -61,6 +104,7 @@ public class FamilyActivity extends AppCompatActivity {
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
             myTranslatePair = null;
+            audioManager.abandonAudioFocus(myAudioFocusChangeListner);
         }
     }
 }
