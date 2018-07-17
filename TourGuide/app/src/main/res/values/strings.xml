@@ -4,13 +4,14 @@
     <string name="category_restaurant">Restaurant</string>
     <string name="category_gelato">Gelato</string>
     <string name="category_hotel">Hotel</string>
+    <string name="detail_price_template"><xliff:g example="$$" id="price">%s</xliff:g> - <xliff:g example="italian" id="style">%s</xliff:g></string>
     <string name="rating_template"><xliff:g example="5.0" id="rating">%s</xliff:g> of 5.0</string>
     <string name="phone_template">Phone: <xliff:g example="+39 123 12312" id="phone">%s</xliff:g></string>
     <string name="address_template">Address: <xliff:g example="adfasdf asfasdf" id="address">%s</xliff:g></string>
     <string name="yelp_label">Yelp</string>
 
 
-    <string name="detail_label">Detail &amp; Highlight</string>
+    <string name="detail_label">Top Comment from Yelpers</string>
     <string name="attraction_1_name">Colosseum</string>
     <string name="attraction_1_description">The Colosseum or Coliseum, also known as the Flavian Amphitheatre, is an oval amphitheatre in the centre of the city of Rome, Italy. Built of travertine, tuff, and brick-faced concrete, it is the largest amphitheatre ever built.</string>
     <string name="attraction_1_phone">+39 06 3996 7700</string>

@@ -11,3 +11,4 @@ metastore_db/
 node_modules/
 chaindata/
 build/
+*.zip

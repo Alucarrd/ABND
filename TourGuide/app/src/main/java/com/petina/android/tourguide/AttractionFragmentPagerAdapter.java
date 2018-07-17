@@ -7,43 +7,38 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class AttractionFragmentPagerAdapter extends FragmentPagerAdapter {
     private Context context;
-    public AttractionFragmentPagerAdapter(Context vContext, FragmentManager fm){
+
+    public AttractionFragmentPagerAdapter(Context vContext, FragmentManager fm) {
         super(fm);
         context = vContext;
     }
 
+    /**
+     * Return the Fragment based on passed in position
+     *
+     * @param position index of the fragment
+     */
     @Override
-    public Fragment getItem(int position){
-        if(position == 0){
+    public Fragment getItem(int position) {
+        if (position == 0) {
             return new AttractionFragment();
-        }
-        else if(position == 1){
+        } else if (position == 1) {
             return new RestaurantFragment();
-        }
-        else if(position == 2){
+        } else if (position == 2) {
             return new GelatoFragment();
-        }
-        else if(position == 3){
+        } else if (position == 3) {
             return new HotelFragment();
-        }
-        else{
+        } else {
             return new AttractionFragment();
         }
     }
+
+    /**
+     * @return hardcoded count for the number of tabs
+     */
     @Override
-    public int getCount(){
+    public int getCount() {
         return 4;
     }
-    @Override
-    public CharSequence getPageTitle(int position) {
-        if (position == 0) {
-            return context.getString(R.string.category_attraction);
-        } else if (position == 1) {
-            return context.getString(R.string.category_restaurant);
-        } else if (position == 2) {
-            return context.getString(R.string.category_gelato);
-        } else {
-            return context.getString(R.string.category_hotel);
-        }
-    }
+
 }

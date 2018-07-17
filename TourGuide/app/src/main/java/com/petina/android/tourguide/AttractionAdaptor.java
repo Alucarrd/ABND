@@ -20,10 +20,11 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 
-public class AttractionAdaptor extends ArrayAdapter<Attraction>{
+public class AttractionAdaptor extends ArrayAdapter<Attraction> {
     private Context myContext;
-    private static final int SHORT_DESCRIPTION_COUNT = 50;
-    public AttractionAdaptor(Activity context, ArrayList<Attraction> vMyAttraction){
+    private static final int SHORT_DESCRIPTION_COUNT = 150;
+
+    public AttractionAdaptor(Activity context, ArrayList<Attraction> vMyAttraction) {
         super(context, 0, vMyAttraction);
         myContext = context;
     }
@@ -31,10 +32,10 @@ public class AttractionAdaptor extends ArrayAdapter<Attraction>{
     /**
      * Provides a view for an AdapterView (ListView, GridView, etc.)
      *
-     * @param position The position in the list of data that should be displayed in the
-     *                 list item view.
+     * @param position    The position in the list of data that should be displayed in the
+     *                    list item view.
      * @param convertView The recycled view to populate.
-     * @param parent The parent ViewGroup that is used for inflation.
+     * @param parent      The parent ViewGroup that is used for inflation.
      * @return The View for the position in the AdapterView.
      */
     @Override
@@ -56,19 +57,11 @@ public class AttractionAdaptor extends ArrayAdapter<Attraction>{
 
         myAttractionImage.setImageResource(resourceId);
 
-
-
         TextView myName = (TextView) listItemView.findViewById(R.id.name_id);
         myName.setText(myAttraction.getAttractionName());
 
         TextView myDescription = (TextView) listItemView.findViewById(R.id.description_id);
         myDescription.setText(myAttraction.getShortDescription(SHORT_DESCRIPTION_COUNT));
-
-        TextView myPhone = (TextView) listItemView.findViewById(R.id.phone_id);
-        myPhone.setText(myAttraction.getPhone());
-
-
-
 
         String ratingTemplate = myContext.getString(R.string.rating_template);
 
@@ -79,26 +72,22 @@ public class AttractionAdaptor extends ArrayAdapter<Attraction>{
         String myPriceIndicator = myAttraction.getPriceIndicator();
 
 
-        if(myPriceIndicator.equalsIgnoreCase("")){
+        if (myPriceIndicator.equalsIgnoreCase("")) {
             myPrice.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             myPrice.setText(myPriceIndicator);
         }
 
         String myStyle = myAttraction.getStyle();
         TextView myStyleText = (TextView) listItemView.findViewById(R.id.style_id);
-        if(myStyle.equalsIgnoreCase("")){
+        if (myStyle.equalsIgnoreCase("")) {
             myStyleText.setVisibility(View.GONE);
-        }
-        else{
+        } else {
             myStyleText.setText(myStyle);
         }
 
         return listItemView;
     }
-
-
 
 
 }

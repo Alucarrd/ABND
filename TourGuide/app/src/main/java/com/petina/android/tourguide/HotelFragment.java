@@ -69,8 +69,9 @@ public class HotelFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        // Inflate the layout for this fragment
-        View rootView =  inflater.inflate(R.layout.attraction_list, container, false);
+        View rootView = inflater.inflate(R.layout.attraction_list, container, false);
+
+        //Load adaptor from the hotel list
         final ArrayList<Attraction> myHotelList = new DataStore(getActivity()).getHotelList();
 
         AttractionAdaptor adapter = new AttractionAdaptor(getActivity(), myHotelList);
@@ -79,6 +80,7 @@ public class HotelFragment extends Fragment {
 
         listView.setAdapter(adapter);
 
+        //Set up on click listener to pass type/id through intent to detail screen
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -100,12 +102,6 @@ public class HotelFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
     }
 
     @Override

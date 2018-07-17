@@ -70,15 +70,19 @@ public class GelatoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView =  inflater.inflate(R.layout.attraction_list, container, false);
+        View rootView = inflater.inflate(R.layout.attraction_list, container, false);
+
+        // Fetch for Gelato List
         final ArrayList<Attraction> myGelatoList = new DataStore(getActivity()).getGelatoList();
 
+        //Load adaptor from the gelato list
         AttractionAdaptor adapter = new AttractionAdaptor(getActivity(), myGelatoList);
 
         ListView listView = (ListView) rootView.findViewById(R.id.list);
 
         listView.setAdapter(adapter);
 
+        //Set up on click listener to pass type/id through intent to detail screen
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -87,8 +91,6 @@ public class GelatoFragment extends Fragment {
                 Intent movingIntent = new Intent(getActivity(), AttractionDetail.class);
                 movingIntent.putExtra("type", myGelato.getAttractionType());
                 movingIntent.putExtra("id", myGelato.getId());
-                Log.i("attraction_id", String.valueOf(myGelato.getId()));
-                Log.i("attraction_type", myGelato.getAttractionType());
                 startActivity(movingIntent);
             }
         });
