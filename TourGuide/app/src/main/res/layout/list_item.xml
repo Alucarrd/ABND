@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/medium_padding">
 
     <ImageView
         android:id="@+id/image_id"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:padding="5dp"
+        android:layout_width="@dimen/summary_image_width"
+        android:layout_height="@dimen/summary_image_height"
+        android:scaleType="centerCrop"
+        android:paddingRight="@dimen/medium_padding"
+
         android:src="@drawable/attraction_1_colosseum" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="5dp">
+        android:paddingLeft="@dimen/small_padding"
+        android:paddingRight="@dimen/medium_padding"
+        >
 
         <TextView
             android:id="@+id/name_id"

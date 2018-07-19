@@ -7,10 +7,10 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_width="300dp"
-        android:layout_height="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_image_height"
         android:layout_gravity="center"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         android:src="@drawable/italy_rome_pantheon_exterior_view" />
 
     <android.support.design.widget.TabLayout

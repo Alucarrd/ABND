@@ -12,10 +12,11 @@
 
         <ImageView
             android:id="@+id/detail_image_id"
-            android:layout_width="@dimen/detail_image_width"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/detail_image_height"
             android:layout_gravity="center"
             android:paddingTop="5dp"
+            android:scaleType="fitCenter"
             android:src="@drawable/attraction_1_colosseum" />
 
         <LinearLayout
