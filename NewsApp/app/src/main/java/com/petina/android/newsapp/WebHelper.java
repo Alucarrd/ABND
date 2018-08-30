@@ -63,11 +63,14 @@ public class WebHelper {
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try{
             // Create a JSONObject from the JSON response string
+            Log.v(LOG_TAG, "RawJson");
+            Log.v(LOG_TAG, rawJSON);
             JSONObject baseJsonResponse = new JSONObject(rawJSON);
 
             // Extract the JSONArray associated with the key called "features",
             // which represents a list of results (or newsArticle).
-            JSONArray newsArticleArray = baseJsonResponse.getJSONArray("results");
+
+            JSONArray newsArticleArray = baseJsonResponse.getJSONObject("response").getJSONArray("results");
 
             //looping through each article
             for (int i = 0; i < newsArticleArray.length(); i ++)

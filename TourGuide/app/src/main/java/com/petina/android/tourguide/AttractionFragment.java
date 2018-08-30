@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 
-public class AttractionFragment extends Fragment {
+public class    AttractionFragment extends Fragment {
     private RecyclerView recyclerView;
     private AttractionRecycleViewAdaptor mAdapter;
 

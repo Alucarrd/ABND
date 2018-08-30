@@ -34,6 +34,8 @@ public class NewsArticle {
     public String getPublicationDate(){
         return _publicationDate;
     }
+
+
     public String getTitle(){
         return _title;
     }
