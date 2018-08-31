@@ -5,44 +5,47 @@ public class NewsArticle {
     private String _sectionName;
     private String _publicationDate;
     private String _title;
-    private String _author;
+    private String _contributor;
     private String _url;
-    private String _sectionId;
 
-    public NewsArticle(String type, String sectionName, String publicationDate, String title,String author, String url, String sectionId ){
+    //constructor for the NewsArticle object
+    public NewsArticle(String type, String sectionName, String publicationDate, String title, String contributor, String url) {
         _type = type;
         _sectionName = sectionName;
-        _sectionId = sectionId;
         _publicationDate = publicationDate;
         _title = title;
-        _author = author;
+        _contributor = contributor;
         _url = url;
 
     }
 
-    public String getType(){
+    //getter for type
+    public String getType() {
         return _type;
     }
 
+    //getter for section name
     public String getSectionName() {
         return _sectionName;
     }
 
-    public String getSectionId(){
-        return _sectionId;
-    }
-    public String getPublicationDate(){
+    //getter for publication date
+    public String getPublicationDate() {
         return _publicationDate;
     }
 
-
-    public String getTitle(){
+    //getter for title
+    public String getTitle() {
         return _title;
     }
-    public String getAuthor(){
-        return _author;
+
+    //getter for contributor
+    public String getContributor() {
+        return _contributor;
     }
-    public String getURL(){
+
+    //getter for url
+    public String getURL() {
         return _url;
     }
 

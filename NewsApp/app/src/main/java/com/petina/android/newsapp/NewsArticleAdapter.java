@@ -1,7 +1,7 @@
 package com.petina.android.newsapp;
 
 import android.app.Activity;
-import android.graphics.drawable.GradientDrawable;
+
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -10,34 +10,33 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
 import java.text.SimpleDateFormat;
-import org.w3c.dom.Text;
+
 
 import java.util.List;
-import java.util.Locale;
 
 public class NewsArticleAdapter extends ArrayAdapter<NewsArticle> {
 
-    public NewsArticleAdapter(Activity context, List<NewsArticle> newsArticles){
+    //constructor for adapter
+    public NewsArticleAdapter(Activity context, List<NewsArticle> newsArticles) {
         super(context, 0, newsArticles);
     }
 
     /**
      * Provides a view for an AdapterView (ListView, GridView, etc.)
      *
-     * @param position The position in the list of data that should be displayed in the
-     *                 list item view.
+     * @param position    The position in the list of data that should be displayed in the
+     *                    list item view.
      * @param convertView The recycled view to populate.
-     * @param parent The parent ViewGroup that is used for inflation.
+     * @param parent      The parent ViewGroup that is used for inflation.
      * @return The View for the position in the AdapterView.
      */
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent){
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listItemView = convertView;
-        if(listItemView == null){
+        if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item_constraintlayout, parent, false);
         }
@@ -52,20 +51,20 @@ public class NewsArticleAdapter extends ArrayAdapter<NewsArticle> {
         TextView contributor = (TextView) listItemView.findViewById(R.id.item_contributor);
         TextView contributor_label = (TextView) listItemView.findViewById(R.id.item_contributor_label);
 
-        if(myItem.getAuthor().equalsIgnoreCase("")) {
+        if (myItem.getContributor().equalsIgnoreCase("")) {
             contributor.setVisibility(View.GONE);
             contributor_label.setVisibility(View.GONE);
-        }else {
-            contributor.setText(myItem.getAuthor());
+        } else {
+            contributor.setText(myItem.getContributor());
         }
 
         TextView publication = (TextView) listItemView.findViewById(R.id.item_publication);
         TextView publication_label = (TextView) listItemView.findViewById(R.id.item_publication_label);
 
-        if(myItem.getPublicationDate().equalsIgnoreCase("")) {
+        if (myItem.getPublicationDate().equalsIgnoreCase("")) {
             publication.setVisibility(View.GONE);
             publication_label.setVisibility(View.GONE);
-        }else {
+        } else {
 
             publication.setText(getMyDate(myItem.getPublicationDate()));
         }
@@ -75,6 +74,12 @@ public class NewsArticleAdapter extends ArrayAdapter<NewsArticle> {
 
     }
 
+    /**
+     * Takes in the ISO 8601 format date and convert to MM/dd/yyyy format
+     *
+     * @param myDate String format of publication date returned from the guardian news api
+     * @return String of MM/dd/yyyy
+     */
     public String getMyDate(String myDate) {
 
         if (!myDate.isEmpty()) {
@@ -85,11 +90,10 @@ public class NewsArticleAdapter extends ArrayAdapter<NewsArticle> {
                 return "";
             }
 
-        }else
+        } else
             return "";
 
     }
-
 
 
 }
