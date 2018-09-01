@@ -10,7 +10,7 @@
 
     <TextView
         android:id="@+id/item_section_name_label"
-        android:layout_width="@dimen/list_item_height"
+        android:layout_width="@dimen/list_item_width"
         android:layout_height="wrap_content"
         android:hint="Section Name"
         android:text="@string/label_section_name"
@@ -19,32 +19,26 @@
 
     <TextView
         android:id="@+id/item_section_name"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/list_item_width"
         android:layout_height="wrap_content"
         android:hint="My Section Name"
         app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toBottomOf="@+id/item_section_name_label"
         app:layout_constraintLeft_toRightOf="@+id/item_section_name_label" />
 
-    <TextView
-        android:id="@+id/item_title_label"
-        android:layout_width="@dimen/list_item_height"
-        android:layout_height="wrap_content"
-        android:hint="Article Title"
-        android:text="@string/label_title"
-        app:layout_constraintTop_toBottomOf="@+id/item_section_name" />
 
     <TextView
         android:id="@+id/item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Article title starts here"
-        app:layout_constraintLeft_toRightOf="@+id/item_title_label"
+        android:hint="Article title starts here and I need this to go to second line"
+
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_section_name" />
 
     <TextView
         android:id="@+id/item_publication_label"
-        android:layout_width="@dimen/list_item_height"
+        android:layout_width="@dimen/list_item_width"
         android:layout_height="wrap_content"
 
         android:hint="Publication On: "
@@ -55,31 +49,20 @@
     <TextView
         android:id="@+id/item_publication"
 
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/list_item_width"
         android:layout_height="wrap_content"
 
         android:hint="08/20/2018"
-        app:layout_constraintLeft_toRightOf="@+id/item_publication_label"
+        app:layout_constraintLeft_toRightOf="@+id/item_section_name_label"
         app:layout_constraintTop_toBottomOf="@+id/item_title" />
 
     <TextView
-        android:id="@+id/item_contributor_label"
-        android:layout_width="@dimen/list_item_height"
-        android:layout_height="wrap_content"
-
-        android:hint="Contributor(s): "
-        android:text="@string/label_contributor"
-        app:layout_constraintLeft_toLeftOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@+id/item_publication" />
-
-    <TextView
         android:id="@+id/item_contributor"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/list_item_width"
         android:layout_height="wrap_content"
 
         android:hint="My name is hoho"
-        app:layout_constraintLeft_toRightOf="@+id/item_contributor_label"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_publication" />
 
 </android.support.constraint.ConstraintLayout>

@@ -105,9 +105,10 @@ public class WebHelper {
                 for (int j = 0; j < tagArray.length(); j++) {
                     JSONObject currentTag = tagArray.getJSONObject(j);
                     String contributor = currentTag.getString("webTitle");
-                    contributors += (contributors == "") ? contributors : (contributors + ", " + contributor);
+                    //Log.v("webhelper",contributor );
+                    contributors += (contributors == "") ? contributor : (contributors + ", " + contributor);
                 }
-
+                //Log.v("webhelper","My final contributors is:" + contributors  );
                 newsArticles.add(new NewsArticle(type, sectionName, publicationDate, title, contributors, url));
 
 

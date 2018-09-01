@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
      */
     private String buildTopicURL(String myTopic) {
         String myRequestURL = NEWS_URL.replace("[API_KEY]", apiKey).replace("[TOPIC]", myTopic);
-        Log.e(LOG_TAG, "building my API URL: " + myRequestURL);
+        Log.v(LOG_TAG, "building my API URL: " + myRequestURL);
         return myRequestURL;
 
     }
@@ -132,8 +132,12 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         View loadingIndicator = findViewById(R.id.indeterminateBar);
         loadingIndicator.setVisibility(View.GONE);
         _newsArticleAdapter.clear();
-        if (data != null && !data.isEmpty())
+        if (data != null && !data.isEmpty()) {
+            for(int i = 0; i< data.size(); i++){
+                Log.v(LOG_TAG, String.valueOf(i+1) + ". " + data.get(i).getContributor());
+            }
             _newsArticleAdapter.addAll(data);
+        }
     }
 
     /**
