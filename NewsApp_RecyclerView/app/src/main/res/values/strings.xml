@@ -1,0 +1,9 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Entertainment News Feed</string>
+    <string name="no_internet_connection">Unable to connect to to the internet.  Please check your internet connection setting or try again at later time.</string>
+    <string name="no_article">No news article found.  Please try again later.</string>
+    <string name="label_section_name">Section Name: </string>
+    <string name="label_title">Title: </string>
+    <string name="label_contributor">By: <xliff:g example="Author Name" id="contributor">%s</xliff:g></string>
+    <string name="label_publication_date">Published On: </string>
+</resources>

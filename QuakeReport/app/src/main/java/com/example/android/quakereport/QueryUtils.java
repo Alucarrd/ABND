@@ -45,6 +45,7 @@ public final class QueryUtils {
         // Create URL object
         Log.v("loaderLogging", "fetchEarthquakeData");
         URL url = createUrl(requestUrl);
+        Log.v("loaderLogging", requestUrl);
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -59,6 +60,7 @@ public final class QueryUtils {
         }
 
         // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
+        Log.v("loaderLogging", jsonResponse);
         List<QuakeReport> earthquakes = extractEarthquakesJson(jsonResponse);
 
         // Return the list of {@link Earthquake}s
@@ -186,6 +188,7 @@ public final class QueryUtils {
                 inputStream.close();
             }
         }
+        Log.v(LOG_TAG, jsonResponse);
         return jsonResponse;
     }
 
