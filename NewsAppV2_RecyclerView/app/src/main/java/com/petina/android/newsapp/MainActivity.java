@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     //define constants
     private static final String apiKey = BuildConfig.ApiKey;
     private static final int NEWSARTICLE_LOADER_ID = 1;
-    private static final String LOG_TAG = MainActivity.class.getName();
+    //private static final String LOG_TAG = MainActivity.class.getName();
+    private static final String LOG_TAG = "MainAction";
     //private final String NEWS_URL = "http://content.guardianapis.com/search?q=[TOPIC]&show-tags=contributor&api-key=[API_KEY]";
     private final String NEWS_URL_ROOT = "https://content.guardianapis.com/search";
 
@@ -231,6 +232,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     }
 
     private boolean checkNetworkConnection(){
+        Log.v(LOG_TAG, "check network connection");
         //if there's no connectivity, then display No internet connection msg, otherwise, create the instance of loader
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
