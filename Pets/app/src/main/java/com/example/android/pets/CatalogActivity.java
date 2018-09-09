@@ -18,6 +18,8 @@ import com.example.android.pets.data.PetContract;
 import com.example.android.pets.data.PetContract.PetEntry;
 import com.example.android.pets.data.PetDbHelper;
 
+import java.util.Random;
+
 /**
  * Displays list of pets that were entered and stored in the app.
  */
@@ -124,6 +126,7 @@ public class CatalogActivity extends AppCompatActivity {
         }
     }
 
+
     private void insertData(ContentValues value){
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         long newRecord = db.insert(PetEntry.TABLE_NAME, null, value);
@@ -161,4 +164,6 @@ public class CatalogActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 }
