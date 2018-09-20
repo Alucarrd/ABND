@@ -6,7 +6,6 @@ target/
 *.csv
 target/
 *.dat
-data/
 metastore_db/
 node_modules/
 chaindata/
