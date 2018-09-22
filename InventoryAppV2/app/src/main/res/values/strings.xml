@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">InventoryAppV1</string>
+    <!-- Label for overflow menu option that inserts fake pet data into the app [CHAR LIMIT=20] -->
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <!-- Label for overflow menu option that deletes all pet data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete_all_entries">Delete All Pets</string>
+
+    <!-- Label for dropdown menu option if the shoe category is unknown [CHAR LIMIT=20] -->
+    <string name="category_unknown">Unknown</string>
+
+    <!-- Label for dropdown menu option if the shoe category is women [CHAR LIMIT=20] -->
+    <string name="category_women">Women</string>
+
+    <!-- Label for dropdown menu option if the shoe category is men [CHAR LIMIT=20] -->
+    <string name="category_men">Men</string>
+
+    <!-- Label for dropdown menu option if the shoe category is girls [CHAR LIMIT=20] -->
+    <string name="category_girls">Girls</string>
+
+    <!-- Label for dropdown menu option if the shoe category is boys [CHAR LIMIT=20] -->
+    <string name="category_boys">boys</string>
+
+
+    <string name="demo_delete_msg">Data cleaned!</string>
+
+</resources>
