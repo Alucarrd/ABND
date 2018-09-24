@@ -1,0 +1,83 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">InventoryApp</string>
+    <string name="action_insert_dummy_data">Insert Dummy Data</string>
+
+    <!-- Label for overflow menu option that deletes all pet data in the app [CHAR LIMIT=20] -->
+    <string name="action_delete">Delete Shoes</string>
+    <string name="action_save">Save</string>
+    <!-- Label for dropdown menu option if the shoe category is unknown [CHAR LIMIT=20] -->
+    <string name="category_unknown">Unknown</string>
+
+    <!-- Label for dropdown menu option if the shoe category is women [CHAR LIMIT=20] -->
+    <string name="category_women">Women</string>
+
+    <!-- Label for dropdown menu option if the shoe category is men [CHAR LIMIT=20] -->
+    <string name="category_men">Men</string>
+
+    <!-- Label for dropdown menu option if the shoe category is girls [CHAR LIMIT=20] -->
+    <string name="category_girls">Girls</string>
+
+    <!-- Label for dropdown menu option if the shoe category is boys [CHAR LIMIT=20] -->
+    <string name="category_boys">Boys</string>
+
+
+    <string name="demo_delete_msg">Data cleaned!</string>
+    <string name="illegal_shoe_name">Please provide a valid shoe name</string>
+    <string name="illegal_shoe_brand">Please provide a valid shoe brand</string>
+    <string name="illegal_shoe_color">Please provide a valid shoe color</string>
+    <string name="illegal_shoe_type">Please provide a valid shoe type</string>
+    <string name="illegal_argument_delete">Delete is not supported for uri <xliff:g example="content://blahblahblah" id="delete">%s</xliff:g></string>
+    <string name="illegal_argument_insert">Insert is not supported for uri <xliff:g example="content://blahblahblah" id="insert">%s</xliff:g></string>
+    <string name="illegal_argument_update">Update is not supported for uri <xliff:g example="content://blahblahblah" id="update">%s</xliff:g></string>
+    <string name="illegal_uri">Unknown URI <xliff:g example="content://blahblahblah" id="uri">%s</xliff:g>  with match <xliff:g example="match_type" id="match">%s</xliff:g></string>
+    <string name="item_price_holder">$<xliff:g example="20.00" id="price">%s</xliff:g></string>
+    <string name="item_size_holder">Size:<xliff:g example="9" id="size">%s</xliff:g></string>
+    <string name="item_category_holder">For:<xliff:g example="Women" id="size">%s</xliff:g></string>
+    <string name="item_list_top_bar"><xliff:g example="Brand" id="brand">%s</xliff:g> - <xliff:g example="Name" id="name">%s</xliff:g></string>
+    <string name="item_list_bottom_bar"><xliff:g example="size" id="size">%s</xliff:g> - <xliff:g example="price" id="price">%s</xliff:g> - <xliff:g example="type" id="type">%s</xliff:g></string>
+    <string name="empty_data">Nothing in the inventory</string>
+    <string name="edit_label_name">Name: </string>
+    <string name="edit_label_brand">Brand: </string>
+    <string name="edit_label_size">Size: </string>
+    <string name="edit_label_color">Color: </string>
+    <string name="edit_label_quantity">Inventory: </string>
+    <string name="edit_label_category">Category: </string>
+    <string name="edit_label_price">Price: </string>
+    <string name="edit_label_supplier_name">Supplier: </string>
+    <string name="edit_label_supplier_phone">Supplier Phone: </string>
+    <string name="edit_title_add">Add New Shoes</string>
+    <string name="edit_title_edit">Edit Shoes</string>
+
+    <!-- Title text for the empty view, which describes the empty dog house image [CHAR LIMIT=50] -->
+    <string name="editor_insert_shoes_successful">Insert shoes successful</string>
+
+    <!-- Title text for the empty view, which describes the empty dog house image [CHAR LIMIT=50] -->
+    <string name="editor_insert_shoes_failed">failed to insert shoes</string>
+    <!-- Title text for the empty view, which describes the empty dog house image [CHAR LIMIT=50] -->
+    <string name="editor_update_shoes_successful">Edit shoes successful</string>
+
+    <!-- Title text for the empty view, which describes the empty dog house image [CHAR LIMIT=50] -->
+    <string name="editor_update_shoes_failed">failed to edit shoes</string>
+    <!-- Dialog message when user is leaving editor but hasn't saved changes [CHAR LIMIT=NONE] -->
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+
+    <!-- Dialog button text for the option to discard a user's changes [CHAR LIMIT=20] -->
+    <string name="discard">Discard</string>
+
+    <!-- Dialog button text for the option to keep editing the current pet [CHAR LIMIT=20] -->
+    <string name="keep_editing">Keep Editing</string>
+    <!-- Toast message in editor when current pet was successfully deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_shoes_successful">Shoes deleted</string>
+
+    <!-- Toast message in editor when current pet has failed to be deleted [CHAR LIMIT=NONE] -->
+    <string name="editor_delete_shoes_failed">Error with deleting shoes</string>
+
+    <!-- Dialog message to ask the user to confirm deleting the current pet [CHAR LIMIT=NONE] -->
+    <string name="delete_dialog_msg">Delete this pet?</string>
+
+    <!-- Dialog button text for the option to confirm deleting the current pet [CHAR LIMIT=20] -->
+    <string name="delete">Delete</string>
+
+    <!-- Dialog button text for the option to cancel deletion of the current pet [CHAR LIMIT=20] -->
+    <string name="cancel">Cancel</string>
+</resources>

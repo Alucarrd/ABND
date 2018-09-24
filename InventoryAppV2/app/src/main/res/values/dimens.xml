@@ -1,7 +1,0 @@
-<resources>
-    <!-- Margin around the floating action button in CatalogActivity -->
-    <dimen name="demo_view_padding">10dp</dimen>
-
-
-</resources>
-
