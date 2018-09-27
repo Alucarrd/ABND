@@ -1,9 +1,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">InventoryApp</string>
+    <string name="app_name">Shoe Shop</string>
     <string name="action_insert_dummy_data">Insert Dummy Data</string>
 
     <!-- Label for overflow menu option that deletes all pet data in the app [CHAR LIMIT=20] -->
     <string name="action_delete">Delete Shoes</string>
+    <string name="action_all_delete">Delete All Shoes</string>
     <string name="action_save">Save</string>
     <!-- Label for dropdown menu option if the shoe category is unknown [CHAR LIMIT=20] -->
     <string name="category_unknown">Unknown</string>
@@ -20,7 +21,6 @@
     <!-- Label for dropdown menu option if the shoe category is boys [CHAR LIMIT=20] -->
     <string name="category_boys">Boys</string>
 
-
     <string name="demo_delete_msg">Data cleaned!</string>
     <string name="illegal_shoe_name">Please provide a valid shoe name</string>
     <string name="illegal_shoe_brand">Please provide a valid shoe brand</string>
@@ -32,9 +32,10 @@
     <string name="illegal_uri">Unknown URI <xliff:g example="content://blahblahblah" id="uri">%s</xliff:g>  with match <xliff:g example="match_type" id="match">%s</xliff:g></string>
     <string name="item_price_holder">$<xliff:g example="20.00" id="price">%s</xliff:g></string>
     <string name="item_size_holder">Size:<xliff:g example="9" id="size">%s</xliff:g></string>
-    <string name="item_category_holder">For:<xliff:g example="Women" id="size">%s</xliff:g></string>
+    <string name="item_category_holder">For <xliff:g example="Women" id="size">%s</xliff:g></string>
+    <string name="item_quantity"><xliff:g example="10" id="size">%s</xliff:g> unit(s)</string>
     <string name="item_list_top_bar"><xliff:g example="Brand" id="brand">%s</xliff:g> - <xliff:g example="Name" id="name">%s</xliff:g></string>
-    <string name="item_list_bottom_bar"><xliff:g example="size" id="size">%s</xliff:g> - <xliff:g example="price" id="price">%s</xliff:g> - <xliff:g example="type" id="type">%s</xliff:g></string>
+    <string name="item_list_bottom_bar"><xliff:g example="size" id="size">%s</xliff:g> - <xliff:g example="price" id="price">%s</xliff:g> - <xliff:g example="type" id="type">%s</xliff:g> - <xliff:g example="10 unit(s)" id="quantity">%s</xliff:g></string>
     <string name="empty_data">Nothing in the inventory</string>
     <string name="edit_label_name">Name: </string>
     <string name="edit_label_brand">Brand: </string>
@@ -73,11 +74,20 @@
     <string name="editor_delete_shoes_failed">Error with deleting shoes</string>
 
     <!-- Dialog message to ask the user to confirm deleting the current pet [CHAR LIMIT=NONE] -->
-    <string name="delete_dialog_msg">Delete this pet?</string>
+    <string name="delete_dialog_msg">Delete this shoes?</string>
 
     <!-- Dialog button text for the option to confirm deleting the current pet [CHAR LIMIT=20] -->
     <string name="delete">Delete</string>
 
     <!-- Dialog button text for the option to cancel deletion of the current pet [CHAR LIMIT=20] -->
     <string name="cancel">Cancel</string>
+    <string name="add_one_quantity">+1</string>
+    <string name="minus_one_quantity">-1</string>
+    <string name="sold_button_label">Sale</string>
+    <string name="no_item_alert">Item out of stock!!!</string>
+    <string name="detail_title">Shoe\'s Detail</string>
+    <string name="action_edit">Edit This Shoe</string>
+    <string name="item_sold_alert">You have <xliff:g example="10" id="quantity">%s</xliff:g> item(s) remaining.</string>
+    <string name="minus_quantity">-</string>
+    <string name="plus_quantity">+</string>
 </resources>

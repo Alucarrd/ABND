@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/demo_view_padding"
+    android:background="?android:attr/selectableItemBackground"
+
+    android:padding="@dimen/demo_view_padding">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFFCC"
+        android:padding="@dimen/demo_view_padding">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/list_item_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="brand - my shoe name"
+                android:textSize="@dimen/textSize"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/list_item_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Size 12 - $20.00 - For Women"
+                android:textSize="@dimen/textSize"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/list_item_top" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/item_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:focusable="false"
+            android:text="@string/sold_button_label" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

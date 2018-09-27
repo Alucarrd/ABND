@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditActivity">
+    tools:context=".DetailActivity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <TextView
             android:id="@+id/edit_input_name"
             style="@style/EditorFieldStyle"
 
@@ -33,7 +33,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_input_name" />
 
-        <EditText
+        <TextView
             android:id="@+id/edit_input_brand"
             style="@style/EditorFieldStyle"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -46,7 +46,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_input_brand" />
 
-        <EditText
+        <TextView
             android:id="@+id/edit_input_size"
             style="@style/EditorFieldStyle"
             android:inputType="number"
@@ -60,7 +60,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_input_size" />
 
-        <EditText
+        <TextView
             android:id="@+id/edit_input_color"
             style="@style/EditorFieldStyle"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -72,28 +72,44 @@
             android:text="@string/edit_label_quantity"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_input_color" />
-
-        <EditText
-            android:id="@+id/edit_input_quantity"
-            style="@style/EditorFieldStyle"
-            android:inputType="number"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearlayout_quantity_input"
+            android:orientation="horizontal"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_label_quantity" />
+            app:layout_constraintTop_toBottomOf="@+id/edit_label_quantity">
+            <Button
+                android:id="@+id/btn_minus_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/minus_quantity"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_input_quantity"
+            />
+            <Button
+                android:id="@+id/btn_plus_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/plus_quantity"/>
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/edit_label_category"
             style="@style/CategoryStyle"
             android:text="@string/edit_label_category"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_input_quantity" />
-        <!-- Gender drop-down spinner -->
-        <Spinner
+            app:layout_constraintTop_toBottomOf="@+id/linearlayout_quantity_input" />
+
+        <TextView
             android:id="@+id/edit_input_category"
             style="@style/EditorFieldStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingRight="@dimen/demo_view_padding"
-            android:spinnerMode="dropdown"
+
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_label_category" />
 
@@ -104,7 +120,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_input_category" />
 
-        <EditText
+        <TextView
             android:id="@+id/edit_input_price"
             style="@style/EditorFieldStyle"
             android:inputType="number"
@@ -118,7 +134,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_input_price" />
 
-        <EditText
+        <TextView
             android:id="@+id/edit_input_supplier_name"
             style="@style/EditorFieldStyle"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -131,11 +147,19 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_input_supplier_name" />
 
-        <EditText
+        <TextView
             android:id="@+id/edit_input_supplier_phone"
             style="@style/EditorFieldStyle"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_label_supplier_phone" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@drawable/add_icon_48"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

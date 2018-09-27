@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -26,7 +27,8 @@ import android.widget.Toast;
 
 import com.petina.android.inventoryapp.data.ShoesContract.ShoesEntry;
 
-public class EditActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
+public class EditActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+
 
     private static final int EXISTING_SHOES_LOADER = 2;
     private Uri _currentShoesUri;
@@ -36,67 +38,46 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
     private int categoryType = ShoesEntry.CATEGORY_UNKNOWN;
     private Boolean _shoeHasChanged = false;
 
-    private View.OnTouchListener _touchListener = new View.OnTouchListener(){
+    //ontouchlistener to detect if the data has change or not
+    private View.OnTouchListener _touchListener = new View.OnTouchListener() {
         @Override
-        public boolean onTouch(View view, MotionEvent motionEvent){
+        public boolean onTouch(View view, MotionEvent motionEvent) {
             _shoeHasChanged = true;
             return false;
         }
     };
 
+    //only display the delete option when editing an item
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu){
+    public boolean onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        if(_currentShoesUri == null){
+        if (_currentShoesUri == null) {
             MenuItem item = menu.findItem(R.id.action_delete);
             item.setVisible(false);
         }
         return true;
     }
 
-    /*
-            // If the intent DOES NOT contain a pet content URI, then we know that we are
-        // creating a new pet.
-        if (mCurrentPetUri == null) {
-            // This is a new pet, so change the app bar to say "Add a Pet"
-            setTitle(getString(R.string.editor_activity_title_new_pet));
 
-            // Invalidate the options menu, so the "Delete" menu option can be hidden.
-            // (It doesn't make sense to delete a pet that hasn't been created yet.)
-            invalidateOptionsMenu();
-        } else {
-            // Otherwise this is an existing pet, so change app bar to say "Edit Pet"
-            setTitle(getString(R.string.editor_activity_title_edit_pet));
-
-            // Initialize a loader to read the pet data from the database
-            // and display the current values in the editor
-            getLoaderManager().initLoader(EXISTING_PET_LOADER, null, this);
-        }
-     */
-
+    //set the title to edit if we can retrieve uri from intent, otherwise, set it to Add new shoes.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
         Intent intent = getIntent();
         _currentShoesUri = intent.getData();
-        if(_currentShoesUri == null){
+        if (_currentShoesUri == null) {
             //add new pet
             setTitle(getString(R.string.edit_title_add));
             invalidateOptionsMenu();
 
-        }
-        else{
+        } else {
             setTitle(getString(R.string.edit_title_edit));
             getLoaderManager().initLoader(EXISTING_SHOES_LOADER, null, this);
         }
 
 
-        /*
-        private EditText editTextName, editTextBrand, editTextColor, editTextSize,
-            editTextPrice, editTextQuantity, editTextSupplier, editTextSupplierPhone;
-    private Spinner spinnerCategory;
-         */
+
         editTextName = (EditText) findViewById(R.id.edit_input_name);
         editTextBrand = (EditText) findViewById(R.id.edit_input_brand);
         editTextColor = (EditText) findViewById(R.id.edit_input_color);
@@ -107,10 +88,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         editTextSupplierPhone = (EditText) findViewById(R.id.edit_input_supplier_phone);
         spinnerCategory = (Spinner) findViewById(R.id.edit_input_category);
 
-        /*
-         mNameEditText.setOnTouchListener(mTouchListener);
-        mBreedEditText.setOnTouchListener(mTouchListener);
-         */
+        //set elements with onTouchListener
         editTextName.setOnTouchListener(_touchListener);
         editTextBrand.setOnTouchListener(_touchListener);
         editTextColor.setOnTouchListener(_touchListener);
@@ -121,14 +99,14 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         editTextSupplierPhone.setOnTouchListener(_touchListener);
         spinnerCategory.setOnTouchListener(_touchListener);
 
+        //setup category spinner
         setupSpinner();
-
-
 
 
     }
 
-    public void setupSpinner(){
+    //bind data and action to spinner view
+    public void setupSpinner() {
         // Create adapter for spinner. The list options are from the String array it will use
         // the spinner will use the default layout
         ArrayAdapter categorySpinnerAdapter = ArrayAdapter.createFromResource(this,
@@ -166,7 +144,9 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         });
 
     }
-    private void saveShoes(){
+
+    //save shoe data
+    private void saveShoes() {
         String name = editTextName.getText().toString().trim();
         String brand = editTextBrand.getText().toString().trim();
         String color = editTextColor.getText().toString().trim();
@@ -176,9 +156,9 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         String supplier = editTextSupplier.getText().toString().trim();
         String supplierPhone = editTextSupplierPhone.getText().toString().trim();
 
-        if(_currentShoesUri == null &&
+        if (_currentShoesUri == null &&
                 TextUtils.isEmpty(name) &&
-                TextUtils.isEmpty(brand)){
+                TextUtils.isEmpty(brand)) {
             return;
         }
         int size = 0;
@@ -206,25 +186,22 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         myValue.put(ShoesEntry.COLUMN_CATEGORY_TYPE, categoryType);
 
 
-        if(_currentShoesUri == null){
+        if (_currentShoesUri == null) {
             Uri myUri = getContentResolver().insert(ShoesEntry.CONTENT_URI, myValue);
-            if(myUri == null){
+            if (myUri == null) {
                 //failed
                 Toast.makeText(this, getString(R.string.editor_insert_shoes_failed),
                         Toast.LENGTH_SHORT).show();
-            }
-            else{
+            } else {
                 Toast.makeText(this, getString(R.string.editor_insert_shoes_successful),
                         Toast.LENGTH_SHORT).show();
             }
-        }
-        else{
+        } else {
             int rowCount = getContentResolver().update(_currentShoesUri, myValue, null, null);
-            if(rowCount == 0){
+            if (rowCount == 0) {
                 Toast.makeText(this, getString(R.string.editor_update_shoes_failed),
                         Toast.LENGTH_SHORT).show();
-            }
-            else{
+            } else {
                 // Otherwise, the update was successful and we can display a toast.
                 Toast.makeText(this, getString(R.string.editor_update_shoes_successful),
                         Toast.LENGTH_SHORT).show();
@@ -234,25 +211,26 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
 
     }
 
-    private void deleteShoes(){
-        if(_currentShoesUri != null){
+    //delete single pair of shoes
+    private void deleteShoes() {
+        if (_currentShoesUri != null) {
             int rowDeleted = getContentResolver().delete(_currentShoesUri, null, null);
-            if(rowDeleted == 0){
+            if (rowDeleted == 0) {
                 Toast.makeText(this, getString(R.string.editor_delete_shoes_failed),
                         Toast.LENGTH_SHORT).show();
-            }
-            else{
+            } else {
                 Toast.makeText(this, getString(R.string.editor_delete_shoes_successful),
                         Toast.LENGTH_SHORT).show();
             }
-
 
 
         }
         finish();
     }
 
-    private void showDeleteconfirmationDialog(){
+    //delete confirmation dialog to ensure user does not delete an item by mistake
+    private void showDeleteconfirmationDialog() {
+        Log.v("option logging", "Start of the delete confirmation dialog call");
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.delete_dialog_msg);
         builder.setPositiveButton(R.string.action_delete, new DialogInterface.OnClickListener() {
@@ -264,15 +242,19 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if(dialog != null){
+                if (dialog != null) {
                     dialog.dismiss();
                 }
             }
         });
+        // Create and show the AlertDialog
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
 
     }
-    private void showUnsavedChangesDialog(
-            DialogInterface.OnClickListener discardButtonClickListener) {
+
+    //show unsaved changes dialog
+    private void showUnsavedChangesDialog(DialogInterface.OnClickListener discardButtonClickListener) {
         // Create an AlertDialog.Builder and set the message, and click listeners
         // for the postivie and negative buttons on the dialog.
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -294,18 +276,21 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
 
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch(item.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.v("option logging", String.valueOf(item.getItemId()));
+        switch (item.getItemId()) {
             case R.id.action_save:
                 saveShoes();
                 finish();
                 return true;
             case R.id.action_delete:
+
                 showDeleteconfirmationDialog();
                 return true;
             case android.R.id.home:
-                if(!_shoeHasChanged){
+                if (!_shoeHasChanged) {
                     NavUtils.navigateUpFromSameTask(EditActivity.this);
                     return true;
 
@@ -325,6 +310,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
 
     }
 
+    //create the option menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu options from the res/menu/menu_editor.xml file.
@@ -333,6 +319,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         return true;
     }
 
+    //listeners to check on back press
     @Override
     public void onBackPressed() {
         // If the pet hasn't changed, continue with handling back button press
@@ -355,6 +342,8 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         // Show dialog that there are unsaved changes
         showUnsavedChangesDialog(discardButtonClickListener);
     }
+
+    //create cursorloader to load item
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String[] projection = {
@@ -372,12 +361,13 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         return new CursorLoader(this, _currentShoesUri, projection, null, null, null);
     }
 
+    //apply data from cursorLoader to the views in activity
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-        if(cursor == null || cursor.getCount() < 1){
+        if (cursor == null || cursor.getCount() < 1) {
             return;
         }
-        if(cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             int nameColumnIndex = cursor.getColumnIndex(ShoesEntry.COLUMN_SHOES_NAME);
             int brandColumnIndex = cursor.getColumnIndex(ShoesEntry.COLUMN_BRAND);
             int sizeColumnIndex = cursor.getColumnIndex(ShoesEntry.COLUMN_SHOES_SIZE);
@@ -393,7 +383,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
             int size = cursor.getInt(sizeColumnIndex);
             String color = cursor.getString(colorColumnIndex);
             int quantity = cursor.getInt(quantityColumnIndex);
-            int price = (int)cursor.getDouble(priceColumnIndex);
+            int price = (int) cursor.getDouble(priceColumnIndex);
             int category = cursor.getInt(categoryColumnIndex);
             String supplier = cursor.getString(supplierColumnIndex);
             String supplierPhone = cursor.getString(supplierPhoneColumnIndex);
@@ -406,7 +396,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
             editTextPrice.setText(String.valueOf(price));
             editTextSupplier.setText(supplier);
             editTextSupplierPhone.setText(supplierPhone);
-            switch(category){
+            switch (category) {
                 case ShoesEntry.CATEGORY_WOMEN:
                     spinnerCategory.setSelection(1);
                     break;
@@ -431,6 +421,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
 
     }
 
+    //upon loader reset, clear everything out
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         editTextName.setText("");

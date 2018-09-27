@@ -9,18 +9,11 @@ import java.nio.file.PathMatcher;
 
 public final class ShoesContract {
 
-    /*
-    Contract and Entry class for shoes store
 
-     public static final String CONTENT_AUTHORITY = "com.example.android.pets";
-    public static final String PATH_PETS = "pets";
-    public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
-
-
-    */
     public static final String CONTENT_AUTHORITY = "com.petina.android.inventoryapp";
     public static final String PATH_SHOES = "shoes";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+
     private ShoesContract() {
     }
 
@@ -40,7 +33,6 @@ public final class ShoesContract {
         public static final String CONTENT_ITEM_TYPE =
                 ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH_SHOES;
         public static final Uri CONTENT_URI = Uri.withAppendedPath(BASE_CONTENT_URI, PATH_SHOES);
-
 
 
         public static final String TABLE_NAME = "shoes";
@@ -64,12 +56,14 @@ public final class ShoesContract {
         public static final int CATEGORY_GIRLS = 3;
         public static final int CATEGORY_BOYS = 4;
 
-        public static Boolean isValidCategory(int category){
-            if(category == CATEGORY_UNKNOWN || category == CATEGORY_WOMEN || category == CATEGORY_MEN ||
+        public static Boolean isValidCategory(int category) {
+            if (category == CATEGORY_UNKNOWN || category == CATEGORY_WOMEN || category == CATEGORY_MEN ||
                     category == CATEGORY_GIRLS || category == CATEGORY_BOYS)
                 return true;
             return false;
         }
+
+
 
 
     }

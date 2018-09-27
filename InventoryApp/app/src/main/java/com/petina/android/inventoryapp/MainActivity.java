@@ -1,5 +1,6 @@
 package com.petina.android.inventoryapp;
 
+import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.ContentValues;
 import android.content.CursorLoader;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,42 +21,52 @@ import android.widget.Toast;
 
 import com.petina.android.inventoryapp.data.ShoesContract;
 import com.petina.android.inventoryapp.data.ShoesContract.ShoesEntry;
-import com.petina.android.inventoryapp.data.ShoesDBHelper;
 
 
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+    //initialize private variables
     private RecyclerView _recyclerView;
     private ShoesRecyclerAdapter _adapter;
     private TextView _emptyView;
-
     private static final int RANDOM_MAX = 1000;
     private static final int RANDOM_SIZE_MAX = 15;
     private static final int RANDOM_CATEGORY_MAX = 4;
     private static final int RANDOM_QUANTITY_MAX = 20;
     private static final int RANDOM_PRICE_MAX = 1000;
     private static final int SHOE_LOADER = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //setup floating button to add new shoes
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, EditActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //load recycler view with adapter
+
         _recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
         _emptyView = (TextView) findViewById(R.id.empty_view);
+
         _recyclerView.setLayoutManager(new LinearLayoutManager(this));
         _adapter = new ShoesRecyclerAdapter(this, null);
         LoaderManager loaderManager = getLoaderManager();
         loaderManager.initLoader(SHOE_LOADER, null, this);
-        _recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        _recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         _recyclerView.setAdapter(_adapter);
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
 
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -65,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
 
+    //action for selected option menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // User clicked on a menu option in the app bar overflow menu
@@ -72,19 +85,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             // Respond to a click on the "Insert dummy data" menu option
             case R.id.action_insert_dummy_data:
                 insertDummyData();
+            return true;
 
-                return true;
-
-            // Respond to a click on the "Delete all entries" menu option
-            case R.id.action_delete:
-                // Do nothing for now
+            // delete all items in inventory
+            case R.id.action_all_delete:
                 deleteAllRecord(ShoesContract.ShoesEntry.TABLE_NAME);
-
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     /**
@@ -117,14 +126,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     /**
-     * @return Cursor object for demo data
-     */
-    private Cursor querySampleData() {
-        Cursor myCursor = getContentResolver().query(ShoesEntry.CONTENT_URI, null, null, null, null);
-        return myCursor;
-    }
-
-    /**
      * Purge all data from the table
      *
      * @param TableName - table name where we want to purge
@@ -151,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         myValue.put(ShoesEntry.COLUMN_SUPPLIER_NAME, "supplierName" + myRandomString);
         myValue.put(ShoesEntry.COLUMN_SUPPLIER_PHONE, "supplierPhone" + myRandomString);
 
-        getContentResolver().insert(ShoesEntry.CONTENT_URI,myValue);
+        getContentResolver().insert(ShoesEntry.CONTENT_URI, myValue);
 
 
     }
@@ -167,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         return rand.nextInt(max) + 1;
     }
 
+    //create cursorloader to return list of items from db
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         String from[] = {
@@ -177,25 +179,25 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
                 , ShoesEntry.COLUMN_SHOES_SIZE
                 , ShoesEntry.COLUMN_SHOES_COLOR
                 , ShoesEntry.COLUMN_PRICE
+                , ShoesEntry.COLUMN_QUANTITY
 
         };
-
 
         return new CursorLoader(this, ShoesEntry.CONTENT_URI,
                 from, null, null, null);
     }
 
+    //Once load finishes, call the swapCursor to swap in the new data
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         Log.i("cursorAtMain", "I have these many data:" + String.valueOf(data.getCount()));
         int itemCount = data == null ? 0 : data.getCount();
-        Log.i("cursorAtMain", "Current cursor count:" + String.valueOf(itemCount) );
-        if(itemCount == 0){
+        Log.i("cursorAtMain", "Current cursor count:" + String.valueOf(itemCount));
+        if (itemCount == 0) {
             _recyclerView.setVisibility(View.GONE);
             _emptyView.setVisibility(View.VISIBLE);
 
-        }
-        else{
+        } else {
             _emptyView.setVisibility(View.GONE);
             _recyclerView.setVisibility(View.VISIBLE);
             Log.i("cursorAtMain", String.format("swapping cursor with %s items", String.valueOf(data.getCount())));
@@ -204,6 +206,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
     }
 
+    //upon loader reset, empty out the data in adapter
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         _adapter.swapCursor(null);

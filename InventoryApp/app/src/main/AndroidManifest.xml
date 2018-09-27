@@ -18,17 +18,21 @@
         </activity>
         <activity
             android:name=".EditActivity"
-            android:theme="@style/AppTheme"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme">
+
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+
         <provider
-            android:authorities="com.petina.android.inventoryapp"
             android:name=".data.ShoesProvider"
+            android:authorities="com.petina.android.inventoryapp"
             android:exported="false" />
+
+        <activity android:name=".DetailActivity"></activity>
     </application>
 
 </manifest>

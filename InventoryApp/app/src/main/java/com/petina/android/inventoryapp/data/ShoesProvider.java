@@ -14,14 +14,19 @@ import android.support.annotation.Nullable;
 import com.petina.android.inventoryapp.R;
 import com.petina.android.inventoryapp.data.ShoesContract.ShoesEntry;
 
-public class ShoesProvider extends ContentProvider
-{
-    /** Tag for the log messages */
+public class ShoesProvider extends ContentProvider {
+    /**
+     * Tag for the log messages
+     */
     public static final String LOG_TAG = ShoesProvider.class.getSimpleName();
-    /** URI matcher code for the content URI for the pets table */
+    /**
+     * URI matcher code for the content URI for the pets table
+     */
     private static final int SHOES = 100;
 
-    /** URI matcher code for the content URI for a single pet in the pets table */
+    /**
+     * URI matcher code for the content URI for a single pet in the pets table
+     */
     private static final int SHOE_ID = 101;
     private ShoesDBHelper _dbHelper;
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -45,6 +50,7 @@ public class ShoesProvider extends ContentProvider
         return true;
     }
 
+    //query method call to query data from sqlite3 db
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
@@ -54,13 +60,13 @@ public class ShoesProvider extends ContentProvider
         SQLiteDatabase _db = _dbHelper.getReadableDatabase();
         Cursor _cursor;
         int match = sUriMatcher.match(uri);
-        switch(match){
+        switch (match) {
             case SHOES:
                 _cursor = _db.query(ShoesEntry.TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);
                 break;
             case SHOE_ID:
                 selection = ShoesEntry._ID + "=?";
-                selectionArgs = new String[]{ String.valueOf(ContentUris.parseId(uri))};
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 _cursor = _db.query(ShoesEntry.TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);
                 break;
             default:
@@ -72,43 +78,30 @@ public class ShoesProvider extends ContentProvider
     }
 
 
+    //insert db method to insert new item into sqlite3 db
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
         final int match = sUriMatcher.match(uri);
-        switch(match){
+        switch (match) {
             case SHOES:
                 return insertShoes(uri, values);
             default:
                 throw new IllegalArgumentException(String.format(getContext().getText(R.string.illegal_argument_insert).toString(), uri));
         }
     }
-    private Uri insertShoes(Uri uri, ContentValues values){
-        /*
-        validation
 
-         public static final String COLUMN_SHOES_NAME = "ProductName"; not null
-        public static final String COLUMN_BRAND = "Brand"; not null
-        public static final String COLUMN_SHOES_SIZE = "Size"; null
-        public static final String COLUMN_SHOES_COLOR = "Color"; not null
-        public static final String COLUMN_CATEGORY_TYPE = "Type"; validate type
-        public static final String COLUMN_PRICE = "Price"; not null with default
-        public static final String COLUMN_QUANTITY = "Quantity"; not null with default
+    private Uri insertShoes(Uri uri, ContentValues values) {
 
-        public static final String COLUMN_SUPPLIER_NAME = "SupplierName"; null
-        public static final String COLUMN_SUPPLIER_PHONE = "SupplierPhone"; null
-
-
-         */
         String name = values.getAsString(ShoesEntry.COLUMN_SHOES_NAME);
-        if(name == null){
+        if (name == null) {
             throw new IllegalArgumentException(getContext().getText(R.string.illegal_shoe_name).toString());
         }
         String brand = values.getAsString(ShoesEntry.COLUMN_BRAND);
-        if(brand == null){
+        if (brand == null) {
             throw new IllegalArgumentException(getContext().getText(R.string.illegal_shoe_brand).toString());
         }
         String color = values.getAsString(ShoesEntry.COLUMN_SHOES_COLOR);
-        if(color == null){
+        if (color == null) {
             throw new IllegalArgumentException(getContext().getText(R.string.illegal_shoe_color).toString());
         }
         Integer shoe_category = values.getAsInteger(ShoesEntry.COLUMN_CATEGORY_TYPE);
@@ -127,13 +120,14 @@ public class ShoesProvider extends ContentProvider
 
     }
 
+    //delete call to delete item
     @Override
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
         _dbHelper = new ShoesDBHelper(getContext());
         SQLiteDatabase _db = _dbHelper.getWritableDatabase();
         final int match = sUriMatcher.match(uri);
         int rowCount = 0;
-        switch(match){
+        switch (match) {
             case SHOES:
                 //delete all
                 rowCount = _db.delete(ShoesEntry.TABLE_NAME, selection, selectionArgs);
@@ -148,24 +142,24 @@ public class ShoesProvider extends ContentProvider
 
         }
 
-        if(rowCount > 0)
+        if (rowCount > 0)
             getContext().getContentResolver().notifyChange(uri, null);
         return rowCount;
 
 
-
     }
 
+    //update call to update item in db
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
         final int match = sUriMatcher.match(uri);
-        switch(match){
+        switch (match) {
             case SHOES:
                 //update all items
                 return updateShoes(uri, values, selection, selectionArgs);
             case SHOE_ID:
                 selection = ShoesEntry._ID + "=?";
-                selectionArgs = new String[]{ String.valueOf(ContentUris.parseId(uri))};
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 return updateShoes(uri, values, selection, selectionArgs);
             default:
                 throw new IllegalArgumentException(String.format(getContext().getText(R.string.illegal_argument_update).toString(), uri));
@@ -174,26 +168,26 @@ public class ShoesProvider extends ContentProvider
 
     }
 
-    public int updateShoes(Uri uri, ContentValues values, String selection, String[] selectionArgs){
+    public int updateShoes(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         if (values.containsKey(ShoesEntry.COLUMN_SHOES_NAME)) {
             String name = values.getAsString(ShoesEntry.COLUMN_SHOES_NAME);
             if (name == null) {
                 throw new IllegalArgumentException(getContext().getText(R.string.illegal_shoe_name).toString());
             }
         }
-        if(values.containsKey(ShoesEntry.COLUMN_BRAND)) {
+        if (values.containsKey(ShoesEntry.COLUMN_BRAND)) {
             String brand = values.getAsString(ShoesEntry.COLUMN_BRAND);
             if (brand == null) {
                 throw new IllegalArgumentException(getContext().getText(R.string.illegal_shoe_brand).toString());
             }
         }
-        if(values.containsKey(ShoesEntry.COLUMN_SHOES_COLOR)) {
+        if (values.containsKey(ShoesEntry.COLUMN_SHOES_COLOR)) {
             String color = values.getAsString(ShoesEntry.COLUMN_SHOES_COLOR);
             if (color == null) {
                 throw new IllegalArgumentException(getContext().getText(R.string.illegal_shoe_color).toString());
             }
         }
-        if(values.containsKey(ShoesEntry.COLUMN_CATEGORY_TYPE)) {
+        if (values.containsKey(ShoesEntry.COLUMN_CATEGORY_TYPE)) {
             Integer shoe_category = values.getAsInteger(ShoesEntry.COLUMN_CATEGORY_TYPE);
             if (shoe_category == null || !ShoesEntry.isValidCategory(shoe_category)) {
                 throw new IllegalArgumentException(getContext().getText(R.string.illegal_shoe_type).toString());
@@ -202,22 +196,22 @@ public class ShoesProvider extends ContentProvider
 
         _dbHelper = new ShoesDBHelper(getContext());
         SQLiteDatabase _db = _dbHelper.getWritableDatabase();
-        if(values.size() == 0)
+        if (values.size() == 0)
             return 0;
         int rowCount = _db.update(ShoesEntry.TABLE_NAME, values, selection, selectionArgs);
-        if(rowCount > 0)
+        if (rowCount > 0)
             getContext().getContentResolver().notifyChange(uri, null);
         return rowCount;
 
 
     }
 
-
+    //return content type
     @Override
     public String getType(@NonNull Uri uri) {
 
         final int match = sUriMatcher.match(uri);
-        switch(match){
+        switch (match) {
             case SHOES:
                 return ShoesEntry.CONTENT_LIST_TYPE;
             case SHOE_ID:

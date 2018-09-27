@@ -3,6 +3,7 @@ package com.petina.android.inventoryapp.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import com.petina.android.inventoryapp.data.ShoesContract.ShoesEntry;
 
 public class ShoesDBHelper extends SQLiteOpenHelper {
@@ -22,7 +23,7 @@ public class ShoesDBHelper extends SQLiteOpenHelper {
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_BRAND + " TEXT NOT NULL, ";
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_SHOES_COLOR + " TEXT NOT NULL, ";
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_SHOES_SIZE + " INTEGER NULL, ";
-        CREATE_SHOES_TABLE += ShoesEntry.COLUMN_CATEGORY_TYPE + " INTEGER NOT NULL DEFAULT " + ShoesEntry.CATEGORY_TYPE_DEFAULT+ ", ";
+        CREATE_SHOES_TABLE += ShoesEntry.COLUMN_CATEGORY_TYPE + " INTEGER NOT NULL DEFAULT " + ShoesEntry.CATEGORY_TYPE_DEFAULT + ", ";
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_PRICE + " INTEGER NOT NULL DEFAULT " + ShoesEntry.PRICE_DEFAULT + ", ";
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_QUANTITY + " INTEGER NOT NULL DEFAULT " + ShoesEntry.QUANTITY_DEFAULT + ", ";
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_SUPPLIER_NAME + " TEXT NULL, ";
