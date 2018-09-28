@@ -78,8 +78,8 @@ public class ShoesRecyclerAdapter extends RecyclerView.Adapter<ShoesRecyclerAdap
         final int id = _cursor.getInt(idColumnIndex);
         String quantity_item = String.format(_context.getText(R.string.item_quantity).toString(), String.valueOf(quantity));
         Log.i("cursorAtMain", String.valueOf(_cursor.getInt(quantityColumnIndex)));
-        String price_item = String.format(_context.getText(R.string.item_price_holder).toString(), String.format("%.2f", Double.valueOf(_cursor.getInt(priceColumnIndex))));
-        String size_item = String.format(_context.getText(R.string.item_size_holder).toString(), String.valueOf(_cursor.getInt(sizeColumnIndex)));
+        String price_item = String.format(_context.getText(R.string.item_price_holder).toString(), String.format("%.2f", Double.valueOf(_cursor.getDouble(priceColumnIndex))));
+        String size_item = String.format(_context.getText(R.string.item_size_holder).toString(),String.format("%.2f", Double.valueOf(_cursor.getDouble(sizeColumnIndex))));
         holder.topItemView.setText(String.format(top_item, _cursor.getString(brandColumnIndex), _cursor.getString(nameColumnIndex)));
         holder.bottomItemView.setText(String.format(bottom_item, size_item, price_item, type_item, quantity_item));
 

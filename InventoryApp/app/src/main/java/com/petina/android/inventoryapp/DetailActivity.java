@@ -30,9 +30,10 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
     private Uri _currentShoesUri;
     private TextView textViewName, textViewBrand, textViewColor, textViewSize,
             textViewPrice, textViewQuantity, textViewSupplier, textViewSupplierPhone, textViewCategory;
-    private Button btnMinus, btnPlus;
+    private Button btnMinus, btnPlus, btnOrder;
 
     private int quantity, id;
+    private String supplierPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         textViewCategory = (TextView) findViewById(R.id.edit_input_category);
         btnMinus = (Button) findViewById(R.id.btn_minus_quantity);
         btnPlus = (Button) findViewById(R.id.btn_plus_quantity);
+        btnOrder = (Button) findViewById(R.id.btnOrder);
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +96,13 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
                 Toast.makeText(DetailActivity.this, msg,
                         Toast.LENGTH_SHORT).show();
 
+            }
+        });
+        btnOrder.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", supplierPhone, null));
+                startActivity(intent);
             }
         });
 
@@ -213,15 +222,15 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
             id = cursor.getInt(idColumnIndex);
             String name = cursor.getString(nameColumnIndex);
             String brand = cursor.getString(brandColumnIndex);
-            int size = cursor.getInt(sizeColumnIndex);
+            double size = cursor.getDouble(sizeColumnIndex);
             String color = cursor.getString(colorColumnIndex);
             quantity = cursor.getInt(quantityColumnIndex);
-            int price = (int) cursor.getDouble(priceColumnIndex);
+            double price = cursor.getDouble(priceColumnIndex);
             int category = cursor.getInt(categoryColumnIndex);
             String supplier = cursor.getString(supplierColumnIndex);
-            String supplierPhone = cursor.getString(supplierPhoneColumnIndex);
+            supplierPhone = cursor.getString(supplierPhoneColumnIndex);
             String price_item = String.format(this.getText(R.string.item_price_holder).toString(), String.format("%.2f", Double.valueOf(price)));
-            String size_item = String.format(this.getText(R.string.item_size_holder).toString(), String.valueOf(size));
+            String size_item = String.format(this.getText(R.string.item_size_holder).toString(), String.format("%.2f", Double.valueOf(size)));
             String quantity_item = String.format(this.getText(R.string.item_quantity).toString(), String.valueOf(quantity));
             textViewName.setText(name);
             textViewBrand.setText(brand);
@@ -232,6 +241,12 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
             textViewQuantity.setText(quantity_item);
             textViewSupplier.setText(supplier);
             textViewSupplierPhone.setText(supplierPhone);
+            if(supplierPhone.isEmpty()){
+                btnOrder.setVisibility(View.GONE);
+            }
+            else{
+                btnOrder.setVisibility(View.VISIBLE);
+            }
         }
     }
 

@@ -8,7 +8,7 @@ import com.petina.android.inventoryapp.data.ShoesContract.ShoesEntry;
 
 public class ShoesDBHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "shoes.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public ShoesDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -22,9 +22,9 @@ public class ShoesDBHelper extends SQLiteOpenHelper {
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_SHOES_NAME + " TEXT NOT NULL, ";
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_BRAND + " TEXT NOT NULL, ";
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_SHOES_COLOR + " TEXT NOT NULL, ";
-        CREATE_SHOES_TABLE += ShoesEntry.COLUMN_SHOES_SIZE + " INTEGER NULL, ";
+        CREATE_SHOES_TABLE += ShoesEntry.COLUMN_SHOES_SIZE + " REAL NULL, ";
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_CATEGORY_TYPE + " INTEGER NOT NULL DEFAULT " + ShoesEntry.CATEGORY_TYPE_DEFAULT + ", ";
-        CREATE_SHOES_TABLE += ShoesEntry.COLUMN_PRICE + " INTEGER NOT NULL DEFAULT " + ShoesEntry.PRICE_DEFAULT + ", ";
+        CREATE_SHOES_TABLE += ShoesEntry.COLUMN_PRICE + " REAL NOT NULL DEFAULT " + ShoesEntry.PRICE_DEFAULT + ", ";
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_QUANTITY + " INTEGER NOT NULL DEFAULT " + ShoesEntry.QUANTITY_DEFAULT + ", ";
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_SUPPLIER_NAME + " TEXT NULL, ";
         CREATE_SHOES_TABLE += ShoesEntry.COLUMN_SUPPLIER_PHONE + " TEXT NULL)";

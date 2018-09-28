@@ -146,7 +146,7 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     //save shoe data
-    private void saveShoes() {
+    private boolean saveShoes() {
         String name = editTextName.getText().toString().trim();
         String brand = editTextBrand.getText().toString().trim();
         String color = editTextColor.getText().toString().trim();
@@ -155,23 +155,32 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         String quantityString = editTextQuantity.getText().toString().trim();
         String supplier = editTextSupplier.getText().toString().trim();
         String supplierPhone = editTextSupplierPhone.getText().toString().trim();
-
-        if (_currentShoesUri == null &&
-                TextUtils.isEmpty(name) &&
-                TextUtils.isEmpty(brand)) {
-            return;
-        }
-        int size = 0;
+        /*
+        Validation checks now...
+         */
+        double size = 0.0;
         double price = 0.0;
         int quantity = 0;
-        if (!TextUtils.isEmpty(sizeString)) {
-            size = Integer.parseInt(sizeString);
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(brand) || TextUtils.isEmpty(color) || TextUtils.isEmpty(sizeString) || TextUtils.isEmpty(quantityString) || TextUtils.isEmpty(priceString)
+                ) {
+                displayToast(getString(R.string.alert_blank_data));
+                return false;
         }
-        if (!TextUtils.isEmpty(quantityString)) {
-            quantity = Integer.parseInt(quantityString);
+        size = Double.parseDouble(sizeString);
+        quantity = Integer.parseInt(quantityString);
+        price = Double.parseDouble(priceString);
+
+        if(size < 1){
+            displayToast(getString(R.string.alert_bad_size));
+            return false;
         }
-        if (!TextUtils.isEmpty(priceString)) {
-            price = Double.parseDouble(priceString);
+        if(price <= 0){
+            displayToast(getString(R.string.alert_bad_price));
+            return false;
+        }
+        if(quantity < 0){
+            displayToast(getString(R.string.alert_bad_quantity));
+            return false;
         }
 
         ContentValues myValue = new ContentValues();
@@ -190,37 +199,37 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
             Uri myUri = getContentResolver().insert(ShoesEntry.CONTENT_URI, myValue);
             if (myUri == null) {
                 //failed
-                Toast.makeText(this, getString(R.string.editor_insert_shoes_failed),
-                        Toast.LENGTH_SHORT).show();
+                displayToast(getString(R.string.editor_insert_shoes_failed));
             } else {
-                Toast.makeText(this, getString(R.string.editor_insert_shoes_successful),
-                        Toast.LENGTH_SHORT).show();
+                displayToast(getString(R.string.editor_insert_shoes_successful));
             }
         } else {
             int rowCount = getContentResolver().update(_currentShoesUri, myValue, null, null);
             if (rowCount == 0) {
-                Toast.makeText(this, getString(R.string.editor_update_shoes_failed),
-                        Toast.LENGTH_SHORT).show();
+                displayToast(getString(R.string.editor_update_shoes_failed));
             } else {
                 // Otherwise, the update was successful and we can display a toast.
-                Toast.makeText(this, getString(R.string.editor_update_shoes_successful),
-                        Toast.LENGTH_SHORT).show();
+                displayToast(getString(R.string.editor_update_shoes_successful));
+
             }
 
         }
+        return true;
 
     }
 
+    private void displayToast(String myMsg){
+        Toast.makeText(this, myMsg,Toast.LENGTH_SHORT).show();
+    }
     //delete single pair of shoes
     private void deleteShoes() {
         if (_currentShoesUri != null) {
             int rowDeleted = getContentResolver().delete(_currentShoesUri, null, null);
             if (rowDeleted == 0) {
-                Toast.makeText(this, getString(R.string.editor_delete_shoes_failed),
-                        Toast.LENGTH_SHORT).show();
+                displayToast(getString(R.string.editor_delete_shoes_failed));
+
             } else {
-                Toast.makeText(this, getString(R.string.editor_delete_shoes_successful),
-                        Toast.LENGTH_SHORT).show();
+                displayToast(getString(R.string.editor_delete_shoes_successful));
             }
 
 
@@ -282,9 +291,13 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
         Log.v("option logging", String.valueOf(item.getItemId()));
         switch (item.getItemId()) {
             case R.id.action_save:
-                saveShoes();
-                finish();
-                return true;
+                boolean savedResult = saveShoes();
+                if(savedResult) {
+                    finish();
+                    return true;
+                }
+                else
+                    return false;
             case R.id.action_delete:
 
                 showDeleteconfirmationDialog();
@@ -380,10 +393,10 @@ public class EditActivity extends AppCompatActivity implements LoaderManager.Loa
 
             String name = cursor.getString(nameColumnIndex);
             String brand = cursor.getString(brandColumnIndex);
-            int size = cursor.getInt(sizeColumnIndex);
+            double size = cursor.getDouble(sizeColumnIndex);
             String color = cursor.getString(colorColumnIndex);
             int quantity = cursor.getInt(quantityColumnIndex);
-            int price = (int) cursor.getDouble(priceColumnIndex);
+            double price = cursor.getDouble(priceColumnIndex);
             int category = cursor.getInt(categoryColumnIndex);
             String supplier = cursor.getString(supplierColumnIndex);
             String supplierPhone = cursor.getString(supplierPhoneColumnIndex);

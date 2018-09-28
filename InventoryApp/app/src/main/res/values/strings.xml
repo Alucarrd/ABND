@@ -90,4 +90,9 @@
     <string name="item_sold_alert">You have <xliff:g example="10" id="quantity">%s</xliff:g> item(s) remaining.</string>
     <string name="minus_quantity">-</string>
     <string name="plus_quantity">+</string>
+    <string name="order_button_label">Call To Order</string>
+    <string name="alert_blank_data">Please input the required field(s)</string>
+    <string name="alert_bad_size">Please input a valid size</string>
+    <string name="alert_bad_quantity">Please input a valid quantity</string>
+    <string name="alert_bad_price">PPlease input a valid price</string>
 </resources>
